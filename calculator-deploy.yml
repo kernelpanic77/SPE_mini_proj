@@ -1,0 +1,10 @@
+---
+- hosts: all 
+  tasks: 
+    - name: Pull image and run container
+      docker_container: 
+        name: devops_calc
+        image: "kernelpanic77/devops-calculator:latest"
+        state: started
+        pull: true
+        interactive: true
