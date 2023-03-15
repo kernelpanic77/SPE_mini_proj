@@ -1,1 +1,1 @@
-# SPE_mini_proj
+# Software Production Engineering - Mini Project
