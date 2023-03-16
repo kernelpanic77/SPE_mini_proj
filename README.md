@@ -1,2 +1,2 @@
 # Software Production Engineering - Mini Project
-### Scientific Calculator
+### Scientific Calculator in Java 
