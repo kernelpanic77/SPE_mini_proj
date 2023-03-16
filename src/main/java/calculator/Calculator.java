@@ -11,13 +11,57 @@ public class Calculator {
     public Calculator() {
     }
 
+    public double fact(double num) {
+        double facto = 1;
+        for(int i = 1; i <= num; ++i)
+        { facto *= i;   }
+        return  facto;
+    }
+
+    public double Factorial(double num1) {
+        double res = fact(num1);
+        logger.info("[FACTORIAL] - " + num1 + " [RESULT - FACTORIAL] - " + res);
+        return res;
+    }
+
+    public double SquareRoot(double num1) {
+        double res  = Math.sqrt(num1);
+        logger.info("[SQROOT] - " + num1 + " [RESULT - SQROOT] - " + res);
+        return res;
+    }
+
+    public double Power(double num1, double num2) {
+        double res = Math.pow(num1, num2);
+        logger.info("[POWER] - " + num1 + " [RAISED_TO] " + num2 + " [RESULT - POWER] - " + res);
+        return res;
+    }
+
+    public double NaturalLog(double num1) {
+        double res = 0;
+        try {
+
+            if (num1 <0 ) {
+                res = Double.NaN;
+                throw new ArithmeticException("Case of NaN 0.0/0.0");
+            }
+            else {
+                res = Math.log(num1);
+            }
+        } catch (ArithmeticException error) {
+            System.out.println("[EXCEPTION - LOG] - Cannot find log of negative numbers " + error.getLocalizedMessage());
+        }
+        logger.info("[NATURAL_LOG] - " + num1 + " [RESULT - NATURAL_LOG] - " + res) ;
+        return res;
+    }
+    
+
     public static void main(String[] args) {
 
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         double number1, number2;
         do {
-            System.out.println("Scientific Calculator using DevOps. \n Choose operation:");
+            System.out.println("The Devops Calculator: \n Choose operation:");
             System.out.print("1. Factorial\n2. Square root\n3. Power\n4. Natural Logarithm\n" +
                     "5. Exit\nEnter your choice: ");
             int choice;
@@ -33,7 +77,7 @@ public class Calculator {
                     // Factorial
                     System.out.print("Enter a number : ");
                     number1 = scanner.nextDouble();
-                    System.out.println("Factorial of "+number1+" is : " + calculator.factorial(number1));
+                    System.out.println("Factorial of "+number1+" is : " + calculator.Factorial(number1));
                     System.out.println("\n");
 
                     break;
@@ -41,7 +85,7 @@ public class Calculator {
                     // Square root
                     System.out.print("Enter a number : ");
                     number1 = scanner.nextDouble();
-                    System.out.println("Square root of "+number1+" is : " + calculator.squareRoot(number1));
+                    System.out.println("Square root of "+number1+" is : " + calculator.SquareRoot(number1));
                     System.out.println("\n");
 
 
@@ -52,14 +96,14 @@ public class Calculator {
                     number1 = scanner.nextDouble();
                     System.out.print("Enter the second number : ");
                     number2 = scanner.nextDouble();
-                    System.out.println(number1+ " raised to power "+number2+" is : " + calculator.power(number1, number2));
+                    System.out.println(number1+ " raised to power "+number2+" is : " + calculator.Power(number1, number2));
                     System.out.println("\n");
                     break;
                 case 4:
                     // Natural log
                     System.out.print("Enter a number : ");
                     number1 = scanner.nextDouble();
-                    System.out.println("Natural log of "+number1+" is : " + calculator.naturalLog(number1));
+                    System.out.println("Natural log of "+number1+" is : " + calculator.NaturalLog(number1));
                     System.out.println("\n");
 
                     break;
@@ -69,55 +113,5 @@ public class Calculator {
                     return;
             }
         } while (true);
-    }
-
-
-    public double factorial(double number1) {
-        logger.info("[FACTORIAL] - " + number1);
-        double result = fact(number1);
-        logger.info("[RESULT - FACTORIAL] - " + result);
-        return result;
-    }
-
-
-
-    public double squareRoot(double number1) {
-        //logger.info("[SQ ROOT] - " + number1);
-        double result = Math.sqrt(number1);
-        //logger.info("[RESULT - SQ ROOT] - " + result);
-        return result;
-    }
-
-
-    public double power(double number1, double number2) {
-        //logger.info("[POWER - " + number1 + " RAISED TO] " + number2);
-        double result = Math.pow(number1,number2);
-        //logger.info("[RESULT - POWER] - " + result);
-        return result;
-    }
-
-    public double naturalLog(double number1) {
-        //logger.info("[NATURAL LOG] - " + number1);
-        double result = 0;
-        try {
-
-            if (number1 <0 ) {
-                result = Double.NaN;
-                throw new ArithmeticException("Case of NaN 0.0/0.0");
-            }
-            else {
-                result = Math.log(number1);
-            }
-        } catch (ArithmeticException error) {
-            System.out.println("[EXCEPTION - LOG] - Cannot find log of negative numbers " + error.getLocalizedMessage());
-        }
-        //logger.info("[RESULT - NATURAL LOG] - " + result);
-        return result;
-    }
-    public double fact(double num) {
-        double facto = 1;
-        for(int i = 1; i <= num; ++i)
-        { facto *= i;   }
-        return  facto;
     }
 }
