@@ -61,8 +61,8 @@ public class Calculator {
         Scanner scanner = new Scanner(System.in);
         double number1, number2;
         do {
-            System.out.println("The Devops Calculator: \n Choose operation:");
-            System.out.print("1. Factorial\n2. Square root\n3. Power\n4. Natural Logarithm\n" +
+            System.out.println("Choose from the operations below:");
+            System.out.print("1. Power\n2. Square root\n3. Factorial\n4. Natural Logarithm\n" +
                     "5. Exit\nEnter your choice: ");
             int choice;
             try {
@@ -74,12 +74,13 @@ public class Calculator {
 
             switch (choice) {
                 case 1:
-                    // Factorial
-                    System.out.print("Enter a number : ");
+                    // Power
+                    System.out.print("Enter the first number : ");
                     number1 = scanner.nextDouble();
-                    System.out.println("Factorial of "+number1+" is : " + calculator.Factorial(number1));
+                    System.out.print("Enter the second number : ");
+                    number2 = scanner.nextDouble();
+                    System.out.println(number1+ " raised to power "+number2+" is : " + calculator.Power(number1, number2));
                     System.out.println("\n");
-
                     break;
                 case 2:
                     // Square root
@@ -87,16 +88,12 @@ public class Calculator {
                     number1 = scanner.nextDouble();
                     System.out.println("Square root of "+number1+" is : " + calculator.SquareRoot(number1));
                     System.out.println("\n");
-
-
                     break;
                 case 3:
-                    // Power
-                    System.out.print("Enter the first number : ");
+                    // Factorial
+                    System.out.print("Enter a number : ");
                     number1 = scanner.nextDouble();
-                    System.out.print("Enter the second number : ");
-                    number2 = scanner.nextDouble();
-                    System.out.println(number1+ " raised to power "+number2+" is : " + calculator.Power(number1, number2));
+                    System.out.println("Factorial of "+number1+" is : " + calculator.Factorial(number1));
                     System.out.println("\n");
                     break;
                 case 4:
